@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Threading.Tasks;
+using CQRS.Dapper.Commands.Exceptions;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CQRS.Dapper.Commands
 {
-    public class CommandHandler<TCommand> : ICommandHandler<TCommand>
+    public class CommandsProcessor : ICommandsProcessor
     {
         private readonly IServiceProvider _serviceProvider;
 
-        public CommandHandler(IServiceProvider serviceProvider)
+        public CommandsProcessor(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
         }
 
-        public Task Execute(TCommand command)
+        public Task Process<TCommand>(TCommand command)
         {
             var handler = _serviceProvider.GetService<ICommandHandler<TCommand>>();
-            if (handler is CommandHandler<TCommand>)
+
+            if (handler == null)
             {
                 throw new UnknownCommandException($"Handler for command \"{command.GetType().Name}\" not found.");
             }
@@ -25,8 +27,8 @@ namespace CQRS.Dapper.Commands
         }
     }
 
-    public class UnknownCommandException : Exception
+    public interface ICommandsProcessor
     {
-        public UnknownCommandException(string message) : base(message) { }
+        Task Process<TCommand>(TCommand command);
     }
 }

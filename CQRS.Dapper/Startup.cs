@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using CQRS.Dapper.Commands;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,8 +25,10 @@ namespace CQRS.Dapper
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
             services.AddScoped<ICommandHandler<AddBook>, AddBookHandler>();
-            services.AddScoped(typeof(ICommandHandler<>), typeof(CommandHandler<>));
+            services.AddScoped<ICommandHandler<DeleteBook>, DeleteBookHandler>();
+            services.AddScoped<ICommandHandlerExecutor, CommandHandlerExecutor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
