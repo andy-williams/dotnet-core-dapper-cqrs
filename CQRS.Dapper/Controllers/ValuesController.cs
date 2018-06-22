@@ -10,18 +10,18 @@ namespace CQRS.Dapper.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        private readonly ICommandHandlerExecutor _commandHandlerExecutor;
+        private readonly ICommandsProcessor _commandProcessor;
 
-        public ValuesController(ICommandHandlerExecutor commandHandlerExecutor)
+        public ValuesController(ICommandsProcessor commandProcessor)
         {
-            _commandHandlerExecutor = commandHandlerExecutor;
+            _commandProcessor = commandProcessor;
         }
 
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            _commandHandlerExecutor.Execute(new AddBook("Name", "Title"));
+            _commandProcessor.Process(new AddBook("Name", "Title"));
             return new string[] { "value1", "value2" };
         }
 

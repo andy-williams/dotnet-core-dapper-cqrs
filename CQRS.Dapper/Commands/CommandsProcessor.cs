@@ -19,9 +19,7 @@ namespace CQRS.Dapper.Commands
             var handler = _serviceProvider.GetService<ICommandHandler<TCommand>>();
 
             if (handler == null)
-            {
                 throw new UnknownCommandException($"Handler for command \"{command.GetType().Name}\" not found.");
-            }
 
             return handler.Execute(command);
         }
