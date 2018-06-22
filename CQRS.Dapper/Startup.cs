@@ -28,7 +28,7 @@ namespace CQRS.Dapper
 
             services.AddScoped<ICommandHandler<AddBook>, AddBookHandler>();
             services.AddScoped<ICommandHandler<DeleteBook>, DeleteBookHandler>();
-            services.AddScoped<ICommandHandlerExecutor, CommandHandlerExecutor>();
+            services.AddScoped<ICommandsProcessor, CommandsProcessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
