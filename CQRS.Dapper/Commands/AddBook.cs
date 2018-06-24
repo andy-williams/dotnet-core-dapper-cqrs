@@ -1,4 +1,7 @@
-﻿namespace CQRS.Dapper.Commands
+﻿using System;
+using System.Threading.Tasks;
+
+namespace CQRS.Dapper.Commands
 {
     public class AddBook
     {
@@ -9,6 +12,14 @@
         {
             this.Author = Author;
             this.Title = Title;
+        }
+    }
+
+    public class AddBookHandler : ICommandHandler<AddBook>
+    {
+        public Task Execute(AddBook command)
+        {
+            throw new NotImplementedException();
         }
     }
 }

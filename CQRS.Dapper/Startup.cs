@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using CQRS.Dapper.Commands;
+﻿using CQRS.Dapper.Commands;
+using CQRS.Dapper.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace CQRS.Dapper
 {
@@ -26,7 +21,9 @@ namespace CQRS.Dapper
         {
             services.AddMvc();
 
-            services.AddScoped<ICommandHandler<AddBook>, AddBookHandler>();
+            services.AddCommandHandler<AddBookHandler, AddBook>();
+            services.AddCommandHandler<DeleteBookHandler, DeleteBook>();
+
             services.AddScoped<ICommandHandler<DeleteBook>, DeleteBookHandler>();
             services.AddScoped<ICommandsProcessor, CommandsProcessor>();
         }
