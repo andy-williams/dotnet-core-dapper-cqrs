@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  cqrsdapper.api:
+    image: cqrsdapper.api
+    links:
+      - cqrsdapper.database
+    depends_on:
+      - cqrsdapper.database
+    environment:
+      - ENV=componenttest
+
+  cqrsdapper.database:
+    image: cqrsdapper.database
+    build:
+      context: ./Sandboxes/Database
+      dockerfile: Dockerfile
+    healthcheck:
+      test:  mysql --user=library_admin --password=password -e 'SELECT * Book' LastSchema
+      timeout: 20s
+      retries: 10

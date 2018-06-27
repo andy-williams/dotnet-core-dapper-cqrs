@@ -1,13 +1,10 @@
 FROM microsoft/aspnetcore:2.0 AS base
 WORKDIR /app
-EXPOSE 80
+EXPOSE 3000
 
 FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR /src
-COPY CQRS.sln ./
-COPY CQRS.Dapper/CQRS.Dapper.csproj CQRS.Dapper/
-RUN dotnet restore -nowarn:msb3202,nu1503
-COPY . .
+COPY src/CQRS.Dapper CQRS.Dapper
 WORKDIR /src/CQRS.Dapper
 RUN dotnet build -c Release -o /app
 

@@ -9,9 +9,13 @@
     <DockerServiceName>cqrs.dapper</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+	<None Include="docker-compose.component-tests.override.yml">
+      <DependentUpon>docker-compose.component-tests.yml</DependentUpon>
+    </None>
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
+	<None Include="docker-compose.component-tests.yml" />
     <None Include="docker-compose.yml" />
     <None Include=".dockerignore" />
   </ItemGroup>

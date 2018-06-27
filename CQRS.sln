@@ -3,23 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS.Dapper", "CQRS.Dapper\CQRS.Dapper.csproj", "{34E4F6FE-71B4-46D7-8559-703CF569D660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS.Dapper", "src\CQRS.Dapper\CQRS.Dapper.csproj", "{34E4F6FE-71B4-46D7-8559-703CF569D660}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D127B9C6-1AA6-42D5-940C-D3A047CCCA4A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sandboxes", "Sandboxes", "{21A51BA2-B9CF-40F7-B62C-5E961C2A4D15}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sandboxes", "sandboxes", "{21A51BA2-B9CF-40F7-B62C-5E961C2A4D15}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{4D9849CC-59F2-4637-9D41-185130676250}"
 	ProjectSection(SolutionItems) = preProject
-		Sandboxes\Database\Dockerfile = Sandboxes\Database\Dockerfile
+		sandboxes\Database\Dockerfile = sandboxes\Database\Dockerfile
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migration", "Migration", "{929AC01A-E3F5-45F1-90DE-A6DEA2D9382F}"
 	ProjectSection(SolutionItems) = preProject
-		Sandboxes\Database\Migration\001_schema.sql = Sandboxes\Database\Migration\001_schema.sql
+		sandboxes\Database\Migration\001_schema.sql = sandboxes\Database\Migration\001_schema.sql
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0A65F0CF-6834-47C9-944F-E77E0089A1DF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0A65F0CF-6834-47C9-944F-E77E0089A1DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Component", "tests\Component\Component.csproj", "{3B770280-9B9E-4837-B23A-330FC93495F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{D127B9C6-1AA6-42D5-940C-D3A047CCCA4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D127B9C6-1AA6-42D5-940C-D3A047CCCA4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D127B9C6-1AA6-42D5-940C-D3A047CCCA4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B770280-9B9E-4837-B23A-330FC93495F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B770280-9B9E-4837-B23A-330FC93495F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B770280-9B9E-4837-B23A-330FC93495F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B770280-9B9E-4837-B23A-330FC93495F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4D9849CC-59F2-4637-9D41-185130676250} = {21A51BA2-B9CF-40F7-B62C-5E961C2A4D15}
 		{929AC01A-E3F5-45F1-90DE-A6DEA2D9382F} = {4D9849CC-59F2-4637-9D41-185130676250}
+		{3B770280-9B9E-4837-B23A-330FC93495F2} = {0A65F0CF-6834-47C9-944F-E77E0089A1DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DBDEAB2A-25EA-4EC8-9DBA-8FFD6CA41ABD}

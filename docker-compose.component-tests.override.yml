@@ -1,0 +1,6 @@
+version: '3'
+
+services:
+  cqrsdapper.api:
+    ports:
+      - 3000:80

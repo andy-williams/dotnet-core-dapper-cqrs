@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  cqrs.dapper:
-    image: cqrsdapper
+  cqrsdapper.api:
+    image: cqrsdapper.api
     build:
       context: .
-      dockerfile: CQRS.Dapper/Dockerfile
+      dockerfile: ./src/CQRS.Dapper/Dockerfile

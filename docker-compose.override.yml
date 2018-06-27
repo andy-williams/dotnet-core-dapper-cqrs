@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  cqrs.dapper:
+  cqrsdapper.api:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ENV=Development
     ports:
-      - "80"
+      - 3000:3000
