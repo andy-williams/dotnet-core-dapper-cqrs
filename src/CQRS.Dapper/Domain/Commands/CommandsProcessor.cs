@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using CQRS.Dapper.Commands.Exceptions;
+using CQRS.Dapper.Domain.Commands.Exceptions;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CQRS.Dapper.Commands
+namespace CQRS.Dapper.Domain.Commands
 {
     public class CommandsProcessor : ICommandsProcessor
     {

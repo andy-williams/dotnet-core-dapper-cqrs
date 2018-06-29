@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migration", "Migration", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0A65F0CF-6834-47C9-944F-E77E0089A1DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Component", "tests\Component\Component.csproj", "{3B770280-9B9E-4837-B23A-330FC93495F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Component", "tests\Component\Component.csproj", "{3B770280-9B9E-4837-B23A-330FC93495F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using CQRS.Dapper.Commands;
-using CQRS.Dapper.Queries;
+using CQRS.Dapper.Domain.Commands;
+using CQRS.Dapper.Domain.Queries;
 using CQRS.Dapper.Request;
 using Microsoft.AspNetCore.Mvc;
 

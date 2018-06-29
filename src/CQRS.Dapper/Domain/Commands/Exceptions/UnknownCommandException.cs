@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CQRS.Dapper.Commands.Exceptions
+namespace CQRS.Dapper.Domain.Commands.Exceptions
 {
     public class UnknownCommandException : Exception
     {

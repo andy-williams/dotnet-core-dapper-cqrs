@@ -1,4 +1,4 @@
-﻿using CQRS.Dapper.Queries;
+﻿using CQRS.Dapper.Domain.Queries;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CQRS.Dapper.Infrastructure

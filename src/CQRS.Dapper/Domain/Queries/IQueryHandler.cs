@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace CQRS.Dapper.Queries
+namespace CQRS.Dapper.Domain.Queries
 {
     public interface IQueryHandler<TQuery, TResult>
     {

@@ -1,4 +1,5 @@
-﻿using CQRS.Dapper.Commands;
+﻿using CQRS.Dapper.Domain.Commands;
+using CQRS.Dapper.Domain.Common;
 using CQRS.Dapper.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,6 +22,7 @@ namespace CQRS.Dapper
         {
             services.AddMvc();
 
+            services.AddSingleton<IDbConnectionFactory>(x => new MysqlDbConnectionFactory(""));
             services.AddCommandHandler<AddBookHandler, AddBook>();
             services.AddCommandHandler<DeleteBookHandler, DeleteBook>();
 

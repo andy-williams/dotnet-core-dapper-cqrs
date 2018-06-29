@@ -1,6 +1,6 @@
 using System;
 
-namespace CQRS.Dapper.Queries.Exceptions
+namespace CQRS.Dapper.Domain.Queries.Exceptions
 {
     public class UnknownQueryException : Exception
     {

@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace CQRS.Dapper.Commands
+namespace CQRS.Dapper.Domain.Commands
 {
     public class AddBook
     {
         public string Author { get; }
         public string Title { get; }
 
-        public AddBook(string Author, string Title)
+        public AddBook(string author, string title)
         {
-            this.Author = Author;
-            this.Title = Title;
+            Author = author;
+            Title = title;
         }
     }
 

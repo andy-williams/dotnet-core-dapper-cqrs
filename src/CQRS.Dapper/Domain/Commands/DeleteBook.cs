@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace CQRS.Dapper.Commands
+namespace CQRS.Dapper.Domain.Commands
 {
     public class DeleteBook
     {

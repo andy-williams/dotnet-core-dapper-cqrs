@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using CQRS.Dapper.Commands;
-using CQRS.Dapper.Commands.Exceptions;
-using CQRS.Dapper.Queries.Exceptions;
+using CQRS.Dapper.Domain.Queries.Exceptions;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CQRS.Dapper.Queries
+namespace CQRS.Dapper.Domain.Queries
 {
     public class QueriesProcessor : IQueriesProcessor
     {
