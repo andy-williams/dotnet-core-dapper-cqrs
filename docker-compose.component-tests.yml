@@ -16,6 +16,6 @@ services:
       context: ./Sandboxes/Database
       dockerfile: Dockerfile
     healthcheck:
-      test:  mysql --user=library_admin --password=password -e 'SELECT * Book' LastSchema
+      test:  mysql --user=library_admin --password=password -e 'SELECT * FROM Book' library
       timeout: 20s
       retries: 10
