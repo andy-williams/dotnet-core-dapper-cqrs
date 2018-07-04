@@ -1,5 +1,6 @@
 ﻿using CQRS.Dapper.Domain.Commands;
 using CQRS.Dapper.Domain.Common;
+using CQRS.Dapper.Domain.Queries;
 using CQRS.Dapper.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,12 +23,14 @@ namespace CQRS.Dapper
         {
             services.AddMvc();
 
-            services.AddSingleton<IDbConnectionFactory>(x => new MysqlDbConnectionFactory(""));
+            services.AddSingleton<IDbConnectionFactory>(x => new MysqlDbConnectionFactory("Server=cqrsdapper.database;uid=library_admin;pwd=password;database=library"));
             services.AddCommandHandler<AddBookHandler, AddBook>();
             services.AddCommandHandler<DeleteBookHandler, DeleteBook>();
 
             services.AddScoped<ICommandHandler<DeleteBook>, DeleteBookHandler>();
             services.AddScoped<ICommandsProcessor, CommandsProcessor>();
+
+            services.AddScoped<IQueriesProcessor, QueriesProcessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using CQRS.Dapper.Domain.Common;
+using Dapper;
 
 namespace CQRS.Dapper.Domain.Commands
 {
@@ -17,9 +19,22 @@ namespace CQRS.Dapper.Domain.Commands
 
     public class AddBookHandler : ICommandHandler<AddBook>
     {
-        public Task Execute(AddBook command)
+        private readonly IDbConnectionFactory _connectionFactory;
+
+        public AddBookHandler(IDbConnectionFactory connectionFactory)
         {
-            throw new NotImplementedException();
+            _connectionFactory = connectionFactory;
+        }
+
+        public async Task Execute(AddBook command)
+        {
+            using (var conn = _connectionFactory.GetDbConnection())
+            {
+                await conn.ExecuteAsync(@"
+                    INSERT INTO Book (Title, Author) 
+                    VALUES (@Title, @Author);
+                ", command);
+            }
         }
     }
 }

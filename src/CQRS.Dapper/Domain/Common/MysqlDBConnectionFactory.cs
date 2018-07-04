@@ -14,7 +14,9 @@ namespace CQRS.Dapper.Domain.Common
 
         public IDbConnection GetDbConnection()
         {
-            return new MySqlConnection(_connectionString);
+            var conn = new MySqlConnection(_connectionString);
+            conn.Open();
+            return conn;
         }
     }
 

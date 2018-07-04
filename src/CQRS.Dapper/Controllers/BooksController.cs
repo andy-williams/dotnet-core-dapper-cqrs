@@ -36,7 +36,8 @@ namespace CQRS.Dapper.Controllers
         [HttpPost]
         public async Task<IActionResult> AddBook([FromBody] AddBookRequest addBookRequest)
         {
-            throw new NotImplementedException();
+            await _commandProcessor.Process(new AddBook(addBookRequest.Author, addBookRequest.Title));
+            return Ok();
         }
 
         // DELETE api/values/5

@@ -1,27 +1,33 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
+using EndToEnd.Request;
+using Newtonsoft.Json;
 using Xunit;
 
-namespace Component
+namespace EndToEnd
 {
-    public class UnitTest1
+    public class Library
     {
-        public UnitTest1()
+        public Library()
         {
             InitAppAndDependencies();
         }
 
         [Fact]
-        public async Task Test1()
+        public async Task It_Adds_Book()
         {
             using (var httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = new Uri("http://localhost:3000");
-                var result = await httpClient.GetAsync("");
+                var request = new AddBookRequest { Author = "Bob", Title = "My Book" };
+                var result = await httpClient.PostAsync("", new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
                 Assert.True(result.IsSuccessStatusCode);
+                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
             }
         }
 
