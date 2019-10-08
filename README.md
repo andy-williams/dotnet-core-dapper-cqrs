@@ -1,7 +1,7 @@
 # Example .NET Core app using CQ(R)S with Dapper
 
 
-> **Note: This is just an example for education purposes - if you want CQ(R)S that works quite nicely out of the box - you should look at [Jimmy Bogard's MediatR](https://github.com/jbogard)**
+> **Note: This is just an example for education purposes - if you want CQ(R)S that works quite nicely out of the box - you should look at [Jimmy Bogard's MediatR](https://github.com/jbogard/MediatR)**
 
 This small .NET Solution shows how to implement CQS pattern with good separation of concerns.
 
